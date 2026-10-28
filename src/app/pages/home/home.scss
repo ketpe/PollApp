@@ -1,3 +1,16 @@
-:host {
-    margin: 0px 111px;
+* {
+    // margin: 0px 111px;
+
+    background-color: blue;
+}
+
+.home_header {
+    &-img {
+        margin: 0px 111px;
+
+    }
+}
+
+.hero-headline {
+    font-family: Nerko One;
 }
