@@ -4,16 +4,34 @@
 <main class="home_main">
     <section class="home_main-hero">
         <aside class="home_main-hero-left">
-            <h1 class="hero-headline"> Ich bin ein Test</h1>
-            <p class="hero-subline"></p>
-            <button></button>
+            <h1 class="hero-headline">Collect Feedback, Unlock Ideas</h1>
+            <p class="hero-subline">Create and share surveys in minutes – from team events to workplace culture. Collect
+                opinions, engage your audience, and turn feedback into action.</p>
+            <app-primary-button></app-primary-button>
         </aside>
         <aside class="home_main-hero-right">
-            <div class="hero-picture"></div><!-- Platzhalter für Animation -->
+            <img src="/images/Visual 3.svg" alt="" srcset=""><!-- Platzhalter für Animation -->
         </aside>
     </section>
     <section class="home_main-surveys">
-        <p class="home_main-surveys-subline"></p>
-
+        <h2>Your surveys</h2>
+        <p class="home_main-surveys-list-ending-subline">Ending soon surveys</p>
+        <article class="home_main-surveys-list-soonending">
+            <p class="home_main-surveys-list-soonending-info--noshow">No ending soon surveys right now</p>
+            <ul class="home_main-surveys-list-soonending-content">
+                <li><app-highlight-card></app-highlight-card></li>
+                <li><app-highlight-card></app-highlight-card></li>
+                <li><app-highlight-card></app-highlight-card></li>
+            </ul>
+        </article>
+        <article class="home_main-surveys-list-filtered">
+            <header class="home_main-surveys-list-filtered_header">
+                <span class="home_main-surveys-list-filtered_header-left">
+                    <app-filter-button label="filter-active" [isActive]="true"></app-filter-button>
+                    <app-filter-button label="filter-past" [isActive]="false"></app-filter-button>
+                </span>
+                <app-drop-down-menu></app-drop-down-menu>
+            </header>
+        </article>
     </section>
 </main>

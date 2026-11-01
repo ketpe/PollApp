@@ -1,0 +1,58 @@
+@use "styles/base/colors" as color;
+
+.drop_down-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.drop_down-menu {
+    padding: 0;
+    border: none;
+    background-color: color.$primary-purpel;
+    color: white;
+    border-radius: 6px;
+    display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    cursor: pointer;
+    width: 100%;
+
+    &-headline {
+        padding: 4px 6px;
+        font-family: Mulish;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 18px;
+
+    }
+
+    &:hover {
+        background-color: color.$background-drop-down-menu-hover;
+    }
+
+    &_list {
+        display: none;
+
+        &.show {
+            box-sizing: border-box;
+            text-shadow: none;
+            display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            background-color: white;
+            font-family: Mulish;
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 2%;
+            gap: 4px;
+            padding: 8px 4px;
+            border-radius: 6px;
+            margin: 0;
+            width: 100%;
+
+        }
+    }
+
+}

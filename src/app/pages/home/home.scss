@@ -1,16 +1,98 @@
-* {
-    // margin: 0px 111px;
+@use "styles/base/colors" as color;
 
-    background-color: blue;
+:host {
+    display: block;
+    // width: 100vw;
+    min-height: 100vh;
+    padding: 0px 111px;
+    background-color: color.$primary-purpel;
+    padding-bottom: 48px; //FIXME - Wieder raus nehmen !
 }
 
 .home_header {
-    &-img {
-        margin: 0px 111px;
+    padding-top: 39px;
+    display: flex;
+}
 
+.home_main {
+    &-hero {
+        display: flex;
+        gap: 40px;
+
+        &-left {
+            .hero-headline {
+                color: color.$primary-orange;
+                font-family: "Nerko One";
+                font-size: 100px;
+                line-height: 89px;
+
+            }
+
+            .hero-subline {
+                color: white;
+                font-family: "Mulish";
+                font-size: 24px;
+                line-height: 100%;
+
+            }
+
+            button {
+                width: 138px;
+                height: 48px;
+            }
+        }
+
+        &-right {
+            img {
+                width: 426px;
+                height: 420px;
+            }
+        }
+
+    }
+
+    &-surveys {
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.251);
+
+        h2 {
+            display: flex;
+            justify-content: center;
+            font-family: Nerko One;
+            font-weight: 400;
+            font-size: 72px;
+            text-align: center;
+            color: color.$primary-orange;
+        }
+
+        p {
+            font-family: "Mulish";
+            font-weight: 500;
+            font-style: medium;
+            font-size: 32px;
+            color: white;
+        }
+
+        &-list-soonending-content {
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            list-style: none;
+            padding: 0 0 40px 0;
+            margin: 0;
+
+        }
+
+        &-list-filtered_header {
+            display: flex;
+            justify-content: space-between;
+
+            &-left {
+                display: flex;
+                gap: 24px;
+            }
+        }
     }
 }
 
-.hero-headline {
-    font-family: Nerko One;
-}
+
+// home_main-surveys-list-filtered_header

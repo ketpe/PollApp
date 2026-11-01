@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./styles/base/typography.scss"
+@import "./styles/base/typography";
+@import "./styles/base/colors";
+
+html,
+body,
+app-root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+}

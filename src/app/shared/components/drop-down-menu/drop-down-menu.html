@@ -1,0 +1,15 @@
+<aside class="drop_down-container">
+    <button class="drop_down-menu" (mouseenter)="currentStatus = 'hover'" (mouseleave)="currentStatus = 'normal'"
+        (mousedown)="currentStatus = 'active'" (mouseup)="currentStatus = 'hover'"
+        (touchstart)="currentStatus = 'active'; $event.stopPropagation()" (touchend)="currentStatus = 'normal'"
+        (click)="toggleDropDown()">
+
+        <span class=" drop_down-menu-headline">Sort by categories</span>
+        <img [src]="getImagePath(currentStatus)" alt="Drop Down Arrow">
+    </button>
+    <ul class="drop_down-menu_list" id="drop_down-menu_list">
+        @for (item of categoriesList; track $index) {
+        <li>{{item}}</li>
+        }
+    </ul>
+</aside>

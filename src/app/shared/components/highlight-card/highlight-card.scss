@@ -1,0 +1,48 @@
+@use "styles/base/colors" as color;
+
+
+.highlight_card {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    padding: 40px 44px 60px 44px;
+    flex-direction: column;
+    background-color: color.$background-card-white;
+    width: 321px;
+    height: 310px;
+    border-top-right-radius: 80px;
+    font-family: Mulish;
+    gap: 10px;
+
+
+
+    &_content {
+        width: 233px;
+        height: 210px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+
+        &-categorie {
+            font-family: Mulish;
+            font-weight: 600;
+            font-style: SemiBold;
+            font-size: 14px;
+
+        }
+
+        &-question {
+            font-family: Mulish;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 26px;
+        }
+    }
+
+    &:hover {
+        background-color: color.$background-card-white-hover;
+        --survey-state-bg-color: #{color.$primary-orange};
+    }
+}

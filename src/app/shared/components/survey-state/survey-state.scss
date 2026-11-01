@@ -1,0 +1,21 @@
+@use "styles/base/colors" as color;
+
+
+.survey-state {
+    width: fit-content;
+    padding: 3px 6px;
+    border-top-right-radius: 14px;
+    background-color: color.$primary-orange;
+
+    &:hover {
+        background-color: color.$secondary-orange;
+    }
+}
+
+.survey-state.inverted {
+    background-color: var(--survey-state-bg-color, color.$secondary-orange);
+}
+
+.survey-state.inverted:hover {
+    background-color: color.$primary-orange;
+}
