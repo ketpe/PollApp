@@ -7,9 +7,11 @@
         <span class=" drop_down-menu-headline">Sort by categories</span>
         <img [src]="getImagePath(currentStatus)" alt="Drop Down Arrow">
     </button>
+    @if (isShow()){
     <ul class="drop_down-menu_list" id="drop_down-menu_list">
         @for (item of categoriesList; track $index) {
-        <li>{{item}}</li>
+        <li class="drop_down-menu_list-item" (click)="selectCategory(item)">{{item}}</li>
         }
     </ul>
+    }
 </aside>

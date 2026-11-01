@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { Categories, CATEGORIES } from '../../models/categories.model';
 
 @Component({
   imports: [],
@@ -8,7 +9,10 @@ import { Component, signal } from '@angular/core';
 })
 export class DropDownMenu {
   currentStatus = 'normal';
-  categoriesList = ["All Surveys", "Team Activities", "Health & Wellness", "Gaming & Entertainment", "Eductaion & Learning", "Lifsyle & Preferences", "Technology & Innovation"]
+
+  categoriesList = CATEGORIES;
+  selectedCategory = signal<Categories>('All Surveys');
+  isShow = signal<boolean>(false);
 
   getImagePath(status: string): string {
     switch (status) {
@@ -21,6 +25,12 @@ export class DropDownMenu {
     }
   }
   toggleDropDown() {
+    this.isShow.update(value => !value);
+  }
+
+  selectCategory(selectCategory: Categories) {
+    this.selectedCategory.set(selectCategory)
+    this.isShow.set(false);
 
   }
 }

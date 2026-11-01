@@ -33,26 +33,30 @@
     }
 
     &_list {
-        display: none;
+        box-sizing: border-box;
+        text-shadow: none;
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        background-color: white;
+        font-family: Mulish;
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 2%;
+        gap: 4px;
+        padding: 8px 4px;
+        border-radius: 6px;
+        margin: 0;
+        width: 100%;
 
-        &.show {
-            box-sizing: border-box;
-            text-shadow: none;
-            display: flex;
-            flex-direction: column;
-            list-style-type: none;
-            background-color: white;
-            font-family: Mulish;
-            font-weight: 400;
-            font-size: 14px;
-            letter-spacing: 2%;
-            gap: 4px;
-            padding: 8px 4px;
-            border-radius: 6px;
-            margin: 0;
-            width: 100%;
+        &-item {
+            cursor: pointer;
+        }
 
+        &-item:hover {
+            background-color: color.$background-categories-hover;
         }
     }
+
 
 }
