@@ -21,7 +21,7 @@ export class DropDownMenu {
     }
   }
   toggleDropDown() {
-    listRef = signal<boolean>(false);
-    selectedOption = signal<string | null>(null);
+
   }
 }
+
