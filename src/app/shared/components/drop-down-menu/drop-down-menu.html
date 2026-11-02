@@ -14,4 +14,7 @@
         }
     </ul>
     }
+    @if (!isShow() && selectedCategory() !== "All Surveys") {
+    <p class="drop_down-menu-selectedCategorie">{{selectedCategory()}}</p>
+    }
 </aside>

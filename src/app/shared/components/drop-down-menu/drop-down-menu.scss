@@ -8,6 +8,10 @@
 }
 
 .drop_down-menu {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 2%;
     padding: 0;
     border: none;
     background-color: color.$primary-purpel;
@@ -54,9 +58,13 @@
         }
 
         &-item:hover {
-            background-color: color.$background-categories-hover;
+            // background-color: color.$background-categories-hover;
         }
     }
 
-
+    &-selectedCategorie {
+        color: color.$primary-orange;
+        padding: 4px 4px 4px 6px;
+        margin: 0;
+    }
 }
