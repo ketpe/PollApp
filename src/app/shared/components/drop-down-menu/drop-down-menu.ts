@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
-import { Categories, CATEGORIES } from '../../models/categories.model';
+import { CategoryNames } from '../../models/survey.models.';
+import { Surveys } from '../../services/surveys';
 
 @Component({
   imports: [],
@@ -8,10 +9,19 @@ import { Categories, CATEGORIES } from '../../models/categories.model';
   templateUrl: './drop-down-menu.html',
 })
 export class DropDownMenu {
+
   currentStatus = 'normal';
 
-  categoriesList = CATEGORIES;
-  selectedCategory = signal<Categories>('All Surveys');
+  categoriesList: CategoryNames[] = [
+    'All Surveys',
+    'Team Activities',
+    'Health & Wellness',
+    'Gaming & Entertainment',
+    'Education & Learning',
+    'Lifestyle & Preferences',
+    'Technology & Innovation'
+  ];
+  selectedCategory = signal<CategoryNames>('All Surveys');
   isShow = signal<boolean>(false);
 
   getImagePath(status: string): string {
@@ -28,10 +38,11 @@ export class DropDownMenu {
     this.isShow.update(value => !value);
   }
 
-  selectCategory(selectCategory: Categories) {
+  selectCategory(selectCategory: CategoryNames) {
     this.selectedCategory.set(selectCategory)
     this.isShow.set(false);
 
   }
 }
+
 

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HomeHeader } from '../../layout/components/home-header/home-header';
 import { PrimaryButton } from '../../shared/components/primary-button/primary-button';
 import { HighlightCard } from '../../shared/components/highlight-card/highlight-card';
 import { FilterButton } from '../../shared/components/filter-button/filter-button';
 import { DropDownMenu } from '../../shared/components/drop-down-menu/drop-down-menu';
+import { Surveys } from '../../shared/services/surveys';
 
 
 @Component({
@@ -12,4 +13,9 @@ import { DropDownMenu } from '../../shared/components/drop-down-menu/drop-down-m
   styleUrl: './home.scss',
   templateUrl: './home.html',
 })
-export class Home { }
+export class Home {
+  allSurveys = inject(Surveys)
+  onNgInit() {
+    console.log(this.allSurveys)
+  }
+}

@@ -2,12 +2,13 @@
 
 :host {
     display: block;
-    // width: 100vw;
+    // width: 100%;
     min-height: 100vh;
     padding: 0px 111px;
     background-color: color.$primary-purpel;
     padding-bottom: 48px; //FIXME - Wieder raus nehmen !
 }
+
 
 .home_header {
     padding-top: 39px;
@@ -15,9 +16,16 @@
 }
 
 .home_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     &-hero {
+
         display: flex;
         gap: 40px;
+        justify-content: center;
 
         &-left {
             .hero-headline {
@@ -53,6 +61,8 @@
 
     &-surveys {
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.251);
+        max-width: 1042px;
+
 
         h2 {
             display: flex;
@@ -92,7 +102,17 @@
             }
         }
     }
+
+    &-surveys-filtered-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        list-style: none;
+        gap: 16px;
+        padding: 0;
+        justify-content: space-between;
+
+        & li {
+            flex: 1;
+        }
+    }
 }
-
-
-// home_main-surveys-list-filtered_header
