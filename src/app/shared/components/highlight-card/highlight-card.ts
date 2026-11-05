@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { SurveyState } from '../survey-state/survey-state';
 
 @Component({
@@ -7,4 +7,9 @@ import { SurveyState } from '../survey-state/survey-state';
   styleUrl: './highlight-card.scss',
   templateUrl: './highlight-card.html',
 })
-export class HighlightCard { }
+export class HighlightCard {
+  source = input<string>('highlight');
+  get cardPrefix() {
+    return this.source() === 'highlight' ? 'highlight_card' : 'survey_card';
+  }
+}
