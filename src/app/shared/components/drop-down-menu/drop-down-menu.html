@@ -7,14 +7,16 @@
         <span class=" drop_down-menu-headline">Sort by categories</span>
         <img [src]="getArrowPathByState(currentStatus)" alt="Drop Down Arrow">
     </button>
-    @if (isShow()){
+    @if (isCategoryShow()){
     <ul class="drop_down-menu_list" id="drop_down-menu_list">
-        @for (item of categoriesList; track $index) {
-        <li class="drop_down-menu_list-item" (click)="selectCategory(item)">{{item}}</li>
+        <li class="drop_down-menu_list-item" (click)="selectCategory('All Surveys')">All Surveys</li>
+        @for (item of this.surveysService.categories(); track $index) {
+        <li class="drop_down-menu_list-item" (click)="selectCategory(item)">{{item.name}}</li>
         }
     </ul>
     }
-    @if (!isShow() && selectedCategory() !== "All Surveys") {
-    <p class="drop_down-menu-selectedCategorie">{{selectedCategory()}}</p>
-    }
+
+    <p class="drop_down-menu-selectedCategorie" [class.is-hidden]="selectedCategory() == 'All Surveys'">{{
+        selectedCategoryObj?.name }}</p>
+
 </aside>

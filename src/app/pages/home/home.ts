@@ -14,8 +14,10 @@ import { Surveys } from '../../shared/services/surveys';
   templateUrl: './home.html',
 })
 export class Home {
-  allSurveys = inject(Surveys)
-  onNgInit() {
-    console.log(this.allSurveys)
+  surveyService = inject(Surveys)
+
+  async ngOnInit() {
+    await this.surveyService.loadCategories();
+    console.log(this.surveyService.categories())
   }
 }

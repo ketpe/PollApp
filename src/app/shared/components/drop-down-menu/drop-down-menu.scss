@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    position: relative;
 }
 
 .drop_down-menu {
@@ -37,6 +38,10 @@
     }
 
     &_list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 10;
         box-sizing: border-box;
         text-shadow: none;
         display: flex;
@@ -54,17 +59,33 @@
         width: 100%;
 
         &-item {
+
             cursor: pointer;
+            padding: 4px;
+            gap: 10px;
+            border-radius: 6px;
+
         }
 
         &-item:hover {
-            // background-color: color.$background-categories-hover;
+            background-color: color.$background-categories-hover;
+            border-radius: 6px;
+            padding: 4px;
+            gap: 10px;
         }
     }
 
     &-selectedCategorie {
+        font-family: Mulish;
+        font-weight: 400;
+        font-size: 14px;
         color: color.$primary-orange;
         padding: 4px 4px 4px 6px;
         margin: 0;
+        min-height: 22px;
     }
+}
+
+.is-hidden {
+    visibility: hidden;
 }

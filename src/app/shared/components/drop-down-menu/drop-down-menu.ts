@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CategoryNames } from '../../models/category.type';
 import { Surveys } from '../../services/surveys';
+import { Category } from '../../models/category.interface';
 
 @Component({
   imports: [],
@@ -9,27 +10,19 @@ import { Surveys } from '../../services/surveys';
   templateUrl: './drop-down-menu.html',
 })
 export class DropDownMenu {
+  surveysService = inject(Surveys);
 
   currentStatus = 'normal';
+  selectedCategory = signal<Category | "All Surveys">('All Surveys');
+  isCategoryShow = signal<boolean>(false);
 
-  categoriesList: CategoryNames[] = [
-    'All Surveys',
-    'Team Activities',
-    'Health & Wellness',
-    'Gaming & Entertainment',
-    'Education & Learning',
-    'Lifestyle & Preferences',
-    'Technology & Innovation'
-  ];
-  selectedCategory = signal<CategoryNames>('All Surveys');
-  isShow = signal<boolean>(false);
   /**
    * specifies the path based on the status
    * @param status
    * @returns path of the Arrow Icon
    */
   getArrowPathByState(status: string): string {
-    if (this.isShow()) {
+    if (this.isCategoryShow()) {
       return '/icons/arrow_drop_down-yellow-top.svg';
     } else {
       switch (status) {
@@ -44,13 +37,18 @@ export class DropDownMenu {
   }
 
   toggleDropDown() {
-    this.isShow.update(value => !value);
+    this.isCategoryShow.update(value => !value);
   }
 
-  selectCategory(selectCategory: CategoryNames) {
-    this.selectedCategory.set(selectCategory)
-    this.isShow.set(false);
+  selectCategory(category: Category | "All Surveys") {
+    this.selectedCategory.set(category)
+    this.isCategoryShow.set(false);
 
+  }
+
+  get selectedCategoryObj(): Category | null {
+    const current = this.selectedCategory();
+    return typeof current === 'object' ? current : null;
   }
 }
 
