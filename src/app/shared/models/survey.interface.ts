@@ -1,5 +1,5 @@
-import { Category } from "./category.model";
-import { Question } from "./question.model";
+import { Category } from "./category.interface";
+import { Question } from "./question.interface";
 
 export interface Survey {
     id?: string;

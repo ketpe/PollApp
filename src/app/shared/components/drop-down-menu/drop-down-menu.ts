@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CategoryNames } from '../../models/survey.models.';
+import { CategoryNames } from '../../models/category.type';
 import { Surveys } from '../../services/surveys';
 
 @Component({
@@ -23,17 +23,26 @@ export class DropDownMenu {
   ];
   selectedCategory = signal<CategoryNames>('All Surveys');
   isShow = signal<boolean>(false);
-
-  getImagePath(status: string): string {
-    switch (status) {
-      case 'hover':
-        return '/icons/arrow_drop_down-yellow.svg';
-      case 'active':
-        return '/icons/arrow_drop_down-yellow-top.svg';
-      default:
-        return '/icons/arrow_drop_down.svg';
+  /**
+   * specifies the path based on the status
+   * @param status
+   * @returns path of the Arrow Icon
+   */
+  getArrowPathByState(status: string): string {
+    if (this.isShow()) {
+      return '/icons/arrow_drop_down-yellow-top.svg';
+    } else {
+      switch (status) {
+        case 'hover':
+          return '/icons/arrow_drop_down-yellow.svg';
+        case 'active':
+          return '/icons/arrow_drop_down-yellow-top.svg';
+        default:
+          return '/icons/arrow_drop_down.svg';
+      }
     }
   }
+
   toggleDropDown() {
     this.isShow.update(value => !value);
   }

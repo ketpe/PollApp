@@ -5,7 +5,7 @@
         (click)="toggleDropDown()">
 
         <span class=" drop_down-menu-headline">Sort by categories</span>
-        <img [src]="getImagePath(currentStatus)" alt="Drop Down Arrow">
+        <img [src]="getArrowPathByState(currentStatus)" alt="Drop Down Arrow">
     </button>
     @if (isShow()){
     <ul class="drop_down-menu_list" id="drop_down-menu_list">
