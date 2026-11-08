@@ -7,7 +7,7 @@
             <h1 class="hero-headline">Collect Feedback, Unlock Ideas</h1>
             <p class="hero-subline">Create and share surveys in minutes – from team events to workplace culture. Collect
                 opinions, engage your audience, and turn feedback into action.</p>
-            <app-primary-button></app-primary-button>
+            <app-primary-button (click)="openNewSurveyDialog()"></app-primary-button>
         </aside>
         <aside class="home_main-hero-right">
             <img src="/images/Visual 3.svg" alt="" srcset=""><!-- Platzhalter für Animation -->
@@ -42,4 +42,5 @@
             </aside>
         </article>
     </section>
+    <app-new-survey-dialog #surveyDialogComp></app-new-survey-dialog>
 </main>
