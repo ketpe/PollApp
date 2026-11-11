@@ -1,0 +1,45 @@
+@use "styles/base/colors" as color;
+
+dialog {
+    background-color: color.$primary-purpel;
+    max-width: 1166px;
+    max-height: 844px;
+    width: 90%;
+    top: 72px;
+    left: 109px;
+    gap: 48px;
+    border-style: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 40px 54px;
+}
+
+.new_servey-header {
+    width: 100%;
+    gap: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &-headline {
+        font-family: Nerko One;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 56px;
+        color: color.$headline-dialog-orange;
+    }
+}
+
+.survey-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+
+    &--left {
+        grid-column: 1;
+    }
+}

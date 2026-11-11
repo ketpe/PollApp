@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 
 @Component({
   imports: [],
@@ -7,7 +7,22 @@ import { Component, input } from '@angular/core';
   templateUrl: './survey-state.html',
 })
 export class SurveyState {
-  statetext = "Ends in 1 Day";
+
   background = input<'default' | 'inverted'>('default');
+  purpose = input<'time remain' | 'state'>('state');
+  surveyState = input<'puplished' | 'draft'>('puplished');
+
+
+  displayText = computed(() => {
+    if (this.purpose() === "time remain") {
+      return "Ends in 1 Day";
+    } else {
+      if (this.surveyState() === "draft") {
+        return "Draft";
+      } else {
+        return "Puplished";
+      }
+    }
+  })
 
 }

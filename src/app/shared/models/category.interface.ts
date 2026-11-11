@@ -1,4 +1,4 @@
-import { CategoryNames } from "./category.type";
+import { CategoryNames } from "./types";
 
 export interface Category {
     id: string;

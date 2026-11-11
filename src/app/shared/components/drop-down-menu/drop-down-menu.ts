@@ -1,5 +1,4 @@
 import { Component, inject, signal } from '@angular/core';
-import { CategoryNames } from '../../models/category.type';
 import { Surveys } from '../../services/surveys';
 import { Category } from '../../models/category.interface';
 

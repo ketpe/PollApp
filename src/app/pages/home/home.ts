@@ -20,8 +20,8 @@ export class Home {
 
   async ngOnInit() {
     await this.surveyService.loadCategories();
-    console.log(this.surveyService.categories())
   }
+
   openNewSurveyDialog() {
     this.surveyDialog.open();
   }

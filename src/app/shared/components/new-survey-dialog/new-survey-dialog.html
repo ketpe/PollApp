@@ -1,7 +1,22 @@
 <dialog #newSurveyDialog (cancel)="onClose()">
-    <h2>Create new survey</h2>
-    <p>Hier kommt später dein Formular rein.</p>
+    <div class="new_servey-container">
+        <app-survey-state purpose="state" surveyState="draft"></app-survey-state>
+        <header class="new_servey-header">
+            <span class="new_servey-header-headline">Create new Servey</span>
+            <app-secondary-button textforBtn="cancel" (btnClick)="close()"></app-secondary-button>
+        </header>
+        <div class="survey-form">
+            <form class="survey-form-grid" [formGroup]="serveyForm">
+                <div class="survey-form-grid--left">
+                    <app-input-field class="title-field" [inputfieldvariant]="'labelOnTop'"
+                        [control]="serveyForm.controls.surveyName" label="Survey name"
+                        [hasTrash]="true"></app-input-field>
+                </div>
+                <div class="survey-form-grid--right">
 
+                </div>
+            </form>
 
-    <button (click)="close()">Close</button>
+        </div>
+    </div>
 </dialog>

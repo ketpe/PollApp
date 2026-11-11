@@ -1,0 +1,27 @@
+@use "styles/base/colors" as color;
+
+.secondary-button {
+    border-style: none;
+    border-radius: 10px;
+    gap: 10px;
+    padding: 8px 12px;
+    background-color: color.$background-secondary-btn ;
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+
+    &-text {
+        color: white;
+        font-family: Nokora;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 16px;
+        text-align: center;
+
+    }
+
+    & img {
+        width: 13.5px;
+        height: 1;
+    }
+}

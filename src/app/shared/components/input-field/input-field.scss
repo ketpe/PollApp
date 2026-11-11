@@ -1,0 +1,29 @@
+.input-container {
+    display: grid;
+    gap: 10px;
+
+    .input-container-label {
+        grid-area: label;
+        color: white;
+    }
+
+    .input-container-input {
+        grid-area: input;
+    }
+
+    .input-container-error {
+        grid-area: error;
+    }
+
+    .input-container-trash {
+        grid-area: trash;
+    }
+
+    &.labelOnTop {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "label button"
+            "input"
+            "error";
+    }
+}
