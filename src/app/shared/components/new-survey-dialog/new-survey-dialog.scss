@@ -1,4 +1,5 @@
 @use "styles/base/colors" as color;
+@use "styles/abstract/mixins" as mixin;
 
 dialog {
     background-color: color.$primary-purpel;
@@ -25,10 +26,7 @@ dialog {
     align-items: center;
 
     &-headline {
-        font-family: Nerko One;
-        font-weight: 400;
-        font-style: Regular;
-        font-size: 56px;
+        @include mixin.font ("Nerko One", 56px, 400);
         color: color.$headline-dialog-orange;
     }
 }

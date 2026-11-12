@@ -1,4 +1,5 @@
 @use "styles/base/colors" as color;
+@use "styles/abstract/mixins" as mixin;
 
 :host {
     display: block;
@@ -30,17 +31,13 @@
         &-left {
             .hero-headline {
                 color: color.$primary-orange;
-                font-family: "Nerko One";
-                font-size: 100px;
-                line-height: 89px;
 
+                @include mixin.font ("Nerko One", 100px, 400, regular, 89px);
             }
 
             .hero-subline {
                 color: white;
-                font-family: "Mulish";
-                font-size: 24px;
-                line-height: 100%;
+                @include mixin.font ("Mulish", 24px, 600);
 
             }
 
@@ -67,19 +64,14 @@
         h2 {
             display: flex;
             justify-content: center;
-            font-family: Nerko One;
-            font-weight: 400;
-            font-size: 72px;
             text-align: center;
             color: color.$primary-orange;
+            @include mixin.font ("Nerko One", 72px, 400);
         }
 
         p {
-            font-family: "Mulish";
-            font-weight: 500;
-            font-style: medium;
-            font-size: 32px;
             color: white;
+            @include mixin.font ("Mulish", 32px, 500, medium);
         }
 
         &-list-soonending-content {

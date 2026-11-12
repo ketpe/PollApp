@@ -1,0 +1,9 @@
+@use '../base/typography';
+
+@mixin font($fontfamily, $fontsize, $fontweight, $fontstyle: regular, $lineheight: 100%) {
+    font-family: $fontfamily, sans-serif;
+    font-size: $fontsize;
+    font-weight: $fontweight;
+    font-style: $fontstyle;
+    line-height: $lineheight
+}

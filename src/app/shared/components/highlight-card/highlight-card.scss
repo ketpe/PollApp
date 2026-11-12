@@ -1,4 +1,5 @@
 @use "styles/base/colors" as color;
+@use "styles/abstract/mixins" as mixin;
 
 
 .highlight_card {
@@ -10,7 +11,6 @@
     background-color: color.$background-card-white;
     height: 310px;
     border-top-right-radius: 80px;
-    font-family: Mulish;
     gap: 10px;
 
     &_content {
@@ -21,18 +21,11 @@
 
 
         &-categorie {
-            font-family: Mulish;
-            font-weight: 600;
-            font-style: SemiBold;
-            font-size: 14px;
-
+            @include mixin.font ("Mulish", 14px, 600, SemiBold);
         }
 
         &-question {
-            font-family: Mulish;
-            font-weight: 700;
-            font-style: Bold;
-            font-size: 26px;
+            @include mixin.font ("Mulish", 26px, 700, Bold);
         }
     }
 
@@ -52,7 +45,6 @@
     justify-content: center;
     flex-direction: column;
     border-top-right-radius: 80px;
-    font-family: Mulish;
     gap: 10px;
 
     &_content {
@@ -62,17 +54,13 @@
         justify-content: space-between;
 
         &-categorie {
-            font-weight: 600;
-            font-style: SemiBold;
-            font-size: 14px;
             color: color.$primary-orange ;
+            @include mixin.font ("Mulish", 14px, 600, SemiBold);
         }
 
         &-question {
-            font-weight: 700;
-            font-style: Bold;
-            font-size: 26px;
             color: white;
+            @include mixin.font ("Mulish", 26px, 700, Bold);
         }
 
     }

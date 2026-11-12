@@ -1,3 +1,5 @@
+@use "styles/abstract/mixins" as mixin;
+
 .input-container {
     display: grid;
     gap: 10px;
@@ -5,11 +7,7 @@
     .input-container-label {
         grid-area: label;
         color: white;
-        font-family: Mulish;
-        font-weight: 700;
-        font-style: Bold;
-        font-size: 18px;
-
+        @include mixin.font ("Mulish", 18px, 700, Bold);
     }
 
     .input-container-textaria {

@@ -1,14 +1,12 @@
 @use "styles/base/colors" as color;
+@use "styles/abstract/mixins" as mixin;
 
 .btn-filter {
     gap: 10px;
     padding: 2px 10px;
     border-radius: 20px;
     background-color: color.$background-btn-default;
-    font-family: Nokora;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 16px;
+    @include mixin.font ("Nokora", 16px, 400);
 
     &.active {
         background-color: color.$primary-orange;
