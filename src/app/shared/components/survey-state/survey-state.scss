@@ -1,4 +1,5 @@
 @use "styles/base/colors" as color;
+@use "styles/abstract/mixins" as mixin;
 
 
 .survey-state {
@@ -6,6 +7,10 @@
     padding: 3px 6px;
     border-top-right-radius: 14px;
     background-color: color.$primary-orange;
+
+    &-text {
+        @include mixin.font ("Mulish", 14px, 500, Medium);
+    }
 
     &:hover {
         background-color: color.$secondary-orange;
