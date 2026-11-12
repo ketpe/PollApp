@@ -1,10 +1,12 @@
 <article>
-    <span class="input-container" [class]="inputfieldvariant()">
+    <span class="input-container" [class]="inputFieldVariant()">
         <label class="input-container-label" for="my-input">{{label()}}</label>
+        @if (inputFieldVariant() != "textArea" ) {
         <input class="input-container-input" id="my-input" name="text">
+        } @else {
+        <textarea class="input-container-textaria" name="my-input" id="my-input"></textarea>
+        }
         <p class="input-container-error"></p>
-        <button class="input-container-trash">
-            <img src="/icons/trash-icon.svg" alt="">
-        </button>
+        <app-delete-button class="input-container-trash"></app-delete-button>
     </span>
 </article>

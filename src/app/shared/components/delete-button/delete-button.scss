@@ -1,0 +1,24 @@
+@use "styles/base/colors" as color;
+
+.delete-btn {
+    all: unset;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    padding: 4px;
+    gap: 10px;
+    cursor: pointer;
+    background-image: url(/icons/trash-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+}
+
+.delete-btn:hover {
+    background-color: color.$background-btn-hover;
+    background-image: url(/icons/trash-icon-hover.svg);
+}

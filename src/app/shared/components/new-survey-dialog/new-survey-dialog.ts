@@ -2,7 +2,6 @@ import { Component, ViewChild, ElementRef, input, output, effect, afterNextRende
 import { SurveyState } from '../survey-state/survey-state';
 import { SecondaryButton } from '../secondary-button/secondary-button';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { InputfieldVariant } from '../../models/types';
 import { InputField } from '../input-field/input-field';
 
 @Component({

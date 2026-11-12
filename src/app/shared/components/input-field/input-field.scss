@@ -5,10 +5,36 @@
     .input-container-label {
         grid-area: label;
         color: white;
+        font-family: Mulish;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 18px;
+
+    }
+
+    .input-container-textaria {
+        grid-area: textarea;
+        height: 108px;
+        gap: 10px;
+        border: none;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        padding-top: 7px 13px;
     }
 
     .input-container-input {
         grid-area: input;
+        height: 37px;
+        gap: 10px;
+        border: none;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        padding-top: 7px 13px;
+
     }
 
     .input-container-error {
@@ -22,8 +48,23 @@
     &.labelOnTop {
         grid-template-columns: 1fr auto;
         grid-template-areas:
-            "label button"
-            "input"
-            "error";
+            "label label"
+            "input trash"
+            "error error";
+    }
+
+    &.labelOnLeft {
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas:
+            " label input trash"
+            " error error error";
+    }
+
+    &.textArea {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            " label label"
+            " textarea trash"
+            " textarea none";
     }
 }
