@@ -10,10 +10,9 @@ import { DeleteButton } from '../delete-button/delete-button';
   templateUrl: './input-field.html',
 })
 export class InputField {
-
-  label = input<string>("");
+  labelname = input<string>("");
+  labeltext = input<string>("");
   hasTrash = input<boolean>(false);
   inputFieldVariant = input<InputFieldVariant>("noLabel")
-
   control = input<FormControl>(new FormControl(''));
 }

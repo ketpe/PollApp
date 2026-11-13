@@ -3,9 +3,10 @@ import { SurveyState } from '../survey-state/survey-state';
 import { SecondaryButton } from '../secondary-button/secondary-button';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { InputField } from '../input-field/input-field';
+import { DropDownMenu } from '../drop-down-menu/drop-down-menu';
 
 @Component({
-  imports: [SurveyState, SecondaryButton, ReactiveFormsModule, InputField],
+  imports: [SurveyState, SecondaryButton, ReactiveFormsModule, InputField, DropDownMenu],
   selector: 'app-new-survey-dialog',
   styleUrl: './new-survey-dialog.scss',
   templateUrl: './new-survey-dialog.html',
@@ -32,6 +33,7 @@ export class NewSurveyDialog {
   serveyForm = new FormGroup({
     surveyName: new FormControl(""),
     surveyDescription: new FormControl(""),
+    surveyEndDate: new FormControl(""),
 
   })
 }

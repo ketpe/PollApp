@@ -43,6 +43,18 @@
         grid-area: trash;
     }
 
+    .input-container-date {
+        grid-area: date;
+        height: 37px;
+        gap: 10px;
+        border: none;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        padding: 7px 13px;
+    }
+
     &.labelOnTop {
         grid-template-columns: 1fr auto;
         grid-template-areas:
@@ -64,5 +76,14 @@
             " label label"
             " textarea trash"
             " textarea none";
+    }
+
+    &.dateInput {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "label label"
+            "date trash"
+            "error error";
+
     }
 }

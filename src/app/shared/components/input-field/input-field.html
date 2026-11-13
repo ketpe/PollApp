@@ -1,10 +1,13 @@
 <article>
     <span class="input-container" [class]="inputFieldVariant()">
-        <label class="input-container-label" for="my-input">{{label()}}</label>
-        @if (inputFieldVariant() != "textArea" ) {
-        <input class="input-container-input" id="my-input" name="text">
-        } @else {
-        <textarea class="input-container-textaria" name="my-input" id="my-input"></textarea>
+        <label class="input-container-label" for="{{labelname()}}">{{labeltext()}}</label>
+        @if (inputFieldVariant() === "labelOnTop") {
+        <input class="input-container-input" id="{{labelname()}}" name="{{labelname()}}">
+        } @else if (inputFieldVariant() === "textArea") {
+        <textarea class="input-container-textaria" name="{{labelname()}}" id="{{labelname()}}"></textarea>
+        }@else if (inputFieldVariant() === "dateInput") {
+        <input class="input-container-date" value="" type="date" name="{{labelname()}}" id="{{labelname()}}"
+            placeholder="">
         }
         <p class="input-container-error"></p>
         <app-delete-button class="input-container-trash"></app-delete-button>
