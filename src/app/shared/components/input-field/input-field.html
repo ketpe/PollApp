@@ -2,14 +2,23 @@
     <span class="input-container" [class]="inputFieldVariant()">
         <label class="input-container-label" for="{{labelname()}}">{{labeltext()}}</label>
         @if (inputFieldVariant() === "labelOnTop") {
-        <input class="input-container-input" id="{{labelname()}}" name="{{labelname()}}">
+        <input class="input-container-input" id="{{labelname()}}" name="{{labelname()}}" [formControl]="control()">
         } @else if (inputFieldVariant() === "textArea") {
-        <textarea class="input-container-textaria" name="{{labelname()}}" id="{{labelname()}}"></textarea>
+        <textarea class="input-container-textaria" name="{{labelname()}}" id="{{labelname()}}"
+            [formControl]="control()"></textarea>
         }@else if (inputFieldVariant() === "dateInput") {
-        <input class="input-container-date" value="" type="date" name="{{labelname()}}" id="{{labelname()}}"
-            placeholder="">
+        <div class="date-wrapper">
+            <input class="input-container-date" type="text" [formControl]="control()" id="{{labelname()}}"
+                name="{{labelname()}}" placeholder="">
+            <div class="calendar-icon-wrapper">
+                <span class="calendar-icon">📅</span>
+                <input class="real-date-input" type="date" (change)="onDateSelected($event)">
+            </div>
+        </div>
         }
-        <p class="input-container-error"></p>
+
+        <p class="input-container-error">{{errorMessage()}}</p>
+
         <app-delete-button class="input-container-trash"></app-delete-button>
     </span>
 </article>

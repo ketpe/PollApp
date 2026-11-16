@@ -1,9 +1,10 @@
 import { Component, ViewChild, ElementRef, input, output, effect, afterNextRender } from '@angular/core';
 import { SurveyState } from '../survey-state/survey-state';
 import { SecondaryButton } from '../secondary-button/secondary-button';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputField } from '../input-field/input-field';
 import { DropDownMenu } from '../drop-down-menu/drop-down-menu';
+import { dateValidator } from '../../validators/validators';
 
 @Component({
   imports: [SurveyState, SecondaryButton, ReactiveFormsModule, InputField, DropDownMenu],
@@ -31,9 +32,13 @@ export class NewSurveyDialog {
   }
 
   serveyForm = new FormGroup({
-    surveyName: new FormControl(""),
+    surveyName: new FormControl("",
+      [Validators.required, Validators.minLength(4)]
+    ),
     surveyDescription: new FormControl(""),
-    surveyEndDate: new FormControl(""),
+    surveyEndDate: new FormControl("",
+      [dateValidator]
+    ),
 
   })
 }
