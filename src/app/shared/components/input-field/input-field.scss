@@ -41,7 +41,19 @@
 
     .input-container-error {
         grid-area: error;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease;
+        margin-top: 0;
+        @include mixin.font ("Mulish", 14px, 700, Bold);
+        color: color.$headline-dialog-orange;
     }
+
+    .input-container-error.is-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
 
     .input-container-trash {
         grid-area: trash;
@@ -97,7 +109,7 @@
             height: 37px;
             width: 100%;
 
-            // Das normale Text-Input (Hier kann der User frei tippen)
+
             .input-container-date {
                 width: 100%;
                 height: 100%;
@@ -106,12 +118,11 @@
                 border-top-right-radius: 20px;
                 border-bottom-right-radius: 5px;
                 border-bottom-left-radius: 5px;
-                padding: 7px 35px 7px 13px; // Rechts etwas Platz lassen für das Icon!
+                padding: 7px 35px 7px 13px;
                 background-color: white;
                 box-sizing: border-box;
             }
 
-            // Wrapper nur für das Icon am rechten Rand
             .calendar-icon-wrapper {
                 position: absolute;
                 right: 13px;
@@ -122,9 +133,11 @@
                 .calendar-icon {
                     pointer-events: none;
                     color: #666;
+                    width: 25px;
+                    height: 25px;
                 }
 
-                // Das echte Datum-Input liegt jetzt NUR über dem Kalender-Icon!
+
                 .real-date-input {
                     position: absolute;
                     top: 0;
@@ -136,6 +149,11 @@
                     z-index: 2;
                 }
             }
+
+            .calendar-icon-wrapper:hover {
+                background-color: color.$background-btn-default ;
+            }
+
         }
     }
 

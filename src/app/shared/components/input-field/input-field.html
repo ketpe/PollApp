@@ -2,22 +2,23 @@
     <span class="input-container" [class]="inputFieldVariant()">
         <label class="input-container-label" for="{{labelname()}}">{{labeltext()}}</label>
         @if (inputFieldVariant() === "labelOnTop") {
-        <input class="input-container-input" id="{{labelname()}}" name="{{labelname()}}" [formControl]="control()">
+        <input class="input-container-input" id="{{labelname()}}" name="{{labelname()}}" [formControl]="control()"
+            (blur)="onBlur()" (input)="onInput()">
         } @else if (inputFieldVariant() === "textArea") {
-        <textarea class="input-container-textaria" name="{{labelname()}}" id="{{labelname()}}"
-            [formControl]="control()"></textarea>
+        <textarea class="input-container-textaria" name="{{labelname()}}" id="{{labelname()}}" [formControl]="control()"
+            (blur)="onBlur()" (input)="onInput()"></textarea>
         }@else if (inputFieldVariant() === "dateInput") {
         <div class="date-wrapper">
             <input class="input-container-date" type="text" [formControl]="control()" id="{{labelname()}}"
-                name="{{labelname()}}" placeholder="">
+                name="{{labelname()}}" placeholder="" (blur)="onBlur()" (input)="onInput()">
             <div class="calendar-icon-wrapper">
-                <span class="calendar-icon">📅</span>
+                <span class="calendar-icon"><img src="/icons/calendar-regular-full.svg" alt="" srcset=""></span>
                 <input class="real-date-input" type="date" (change)="onDateSelected($event)">
             </div>
         </div>
         }
 
-        <p class="input-container-error">{{errorMessage()}}</p>
+        <p class="input-container-error" [class.is-visible]="errorMessage()">{{errorMessage()}}</p>
 
         <app-delete-button class="input-container-trash"></app-delete-button>
     </span>
