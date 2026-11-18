@@ -5,6 +5,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { InputField } from '../input-field/input-field';
 import { DropDownMenu } from '../drop-down-menu/drop-down-menu';
 import { dateValidator } from '../../validators/validators';
+import { INPUT_LABEL_TEXT } from '../../models/input-label-text';
 
 @Component({
   imports: [SurveyState, SecondaryButton, ReactiveFormsModule, InputField, DropDownMenu],
@@ -16,6 +17,8 @@ export class NewSurveyDialog {
 
   @ViewChild('newSurveyDialog') dialogRef!: ElementRef<HTMLDialogElement>;
   closeDialog = output<void>();
+
+  labelText = INPUT_LABEL_TEXT;
 
 
   open() {
@@ -37,7 +40,7 @@ export class NewSurveyDialog {
     ),
     surveyDescription: new FormControl(""),
     surveyEndDate: new FormControl("",
-      [dateValidator]
+      [dateValidator,]
     ),
 
   })

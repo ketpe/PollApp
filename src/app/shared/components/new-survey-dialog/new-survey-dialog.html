@@ -7,19 +7,19 @@
         </header>
         <div class="survey-form">
             <form class="survey-form-grid" [formGroup]="serveyForm">
-                <div class="survey-form-grid--left">
+                <div class="survey-form-grid-container">
                     <app-input-field class="title-field" [inputFieldVariant]="'labelOnTop'"
-                        [control]="serveyForm.controls.surveyName" labeltext="Survey name" labelname="SurveyName"
-                        [hasTrash]="true"></app-input-field>
+                        [control]="serveyForm.controls.surveyName" [labeltext]="labelText.surveyName"
+                        labelname="SurveyName" [hasTrash]="true"></app-input-field>
                     <app-input-field class="end-date-field" [inputFieldVariant]="'dateInput'"
-                        [control]="serveyForm.controls.surveyEndDate" labeltext="Set end date (optional)"
+                        [control]="serveyForm.controls.surveyEndDate" [labeltext]="labelText.surveyDate"
                         labelname="SurveyEnddate" [hasTrash]="true"></app-input-field>
-                    <app-drop-down-menu></app-drop-down-menu>
-
+                    <app-drop-down-menu class="survey-category"></app-drop-down-menu>
+                    <app-input-field class="survey-description" [inputFieldVariant]="'textArea'"
+                        [control]="serveyForm.controls.surveyDescription" [labeltext]="labelText.surveyDescription"
+                        labelname="SurveyName" [hasTrash]="true"></app-input-field>
                 </div>
-                <div class="survey-form-grid--right">
 
-                </div>
             </form>
 
         </div>

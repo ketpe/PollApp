@@ -21,6 +21,10 @@
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
         padding-top: 7px 13px;
+
+        &:focus {
+            background-color: color.$background-btn-default;
+        }
     }
 
     .input-container-input {
@@ -41,6 +45,7 @@
 
     .input-container-error {
         grid-area: error;
+        height: 14px;
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.2s ease;
@@ -51,6 +56,7 @@
 
     .input-container-error.is-visible {
         opacity: 1;
+        height: 14px;
         visibility: visible;
     }
 
@@ -69,6 +75,10 @@
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
         padding: 7px 13px;
+
+        &:focus {
+            background-color: color.$background-btn-default;
+        }
     }
 
     &.labelOnTop {
@@ -121,6 +131,10 @@
                 padding: 7px 35px 7px 13px;
                 background-color: white;
                 box-sizing: border-box;
+
+                &:focus {
+                    background-color: color.$background-btn-default;
+                }
             }
 
             .calendar-icon-wrapper {
