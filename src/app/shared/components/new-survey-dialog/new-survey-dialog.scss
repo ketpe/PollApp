@@ -52,7 +52,8 @@ dialog {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-areas:
             "question-title question-title none none"
-            "answer-headline multi-checkbox none none";
+            "answer-headline multi-checkbox none none"
+            "answer-inputs answer-inputs none none";
     }
 
     &__title-field {
@@ -85,5 +86,10 @@ dialog {
 
     &__answer-multicheckbox {
         grid-area: multi-checkbox;
+        padding-bottom: 16px;
+    }
+
+    &__answer-inputs {
+        grid-area: answer-inputs;
     }
 }

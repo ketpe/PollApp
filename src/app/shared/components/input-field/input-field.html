@@ -1,7 +1,8 @@
 <article>
     <span class="input-container" [class]="inputFieldVariant()">
         <label class="input-container-label" for="{{labelname()}}">{{labeltext()}}</label>
-        @if (inputFieldVariant() === "labelOnTop" || inputFieldVariant() === "labelOnTopWithTrash") {
+        @if (inputFieldVariant() === "labelOnTop" || inputFieldVariant() === "labelOnTopWithTrash" ||
+        inputFieldVariant() === "labelOnLeft") {
         <input class="input-container-input" id="{{labelname()}}" name="{{labelname()}}" [formControl]="control()"
             placeholder="{{placeholder()}}" (blur)="onBlur()" (input)="onInput()">
         } @else if (inputFieldVariant() === "textArea") {

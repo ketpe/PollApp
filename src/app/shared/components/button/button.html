@@ -1,0 +1,5 @@
+<button [class]="btnConfig().class +'_btn'" (click)="btnClick.emit()">
+    <span [class]="btnConfig().class+'_btn-label'">{{btnText()}}</span>
+    <img [class]="btnConfig().class +'_btn-img'" src="{{btnConfig().imagePath}}" alt="add circle" srcset="">
+    <hr>
+</button>

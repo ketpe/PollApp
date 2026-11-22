@@ -3,7 +3,7 @@
         <app-survey-state purpose="state" surveyState="draft"></app-survey-state>
         <header class="new-survey-header">
             <span class="new-survey-header-headline">Create new Servey</span>
-            <app-secondary-button textforBtn="cancel" (btnClick)="close()"></app-secondary-button>
+            <app-button (click)="close()" [btnText]="'Cancel'" [btnVariant]="'secondary_cancel'"></app-button>
         </header>
         <article class="survey-form">
             <form class="survey-form__form" [formGroup]="serveyForm">
@@ -20,14 +20,28 @@
                         labelname="SurveyDescription" [hasTrash]="true"></app-input-field>
                 </section>
                 <section class="survey-form__questions-section">
-                    @for (item of getQuestionControls(); track $index) { <app-input-field
+                    @for (item of getQuestionControls(); track $index; let questionIndex = $index) { <app-input-field
                         class="survey-form__question-title-field" [inputFieldVariant]="'labelOnTopWithTrash'"
-                        [control]="$any(item).get('question')" [labeltext]="$index + 1 + '. ' + labelText.question"
+                        [control]="$any(item).get('question')"
+                        [labeltext]="questionIndex + 1 + '. ' + labelText.question"
                         placeholder="Choose the activities you prefer" labelname="Question{{$index}}"
                         [hasTrash]="true"></app-input-field>
                     <p class="survey-form__answer-headline">Answers</p>
                     <app-checkbox class="survey-form__answer-multicheckbox" labelname="multiAnswer{{$index}}"
-                        [labeltext]="labelText.multiAnswer" [control]="$any(item).get('multiAnswer')"></app-checkbox>}
+                        [labeltext]="labelText.multiAnswer" [control]="$any(item).get('multiAnswer')"></app-checkbox>
+                    <div class="survey-form__answer-inputs">
+                        @for (item of getAnswerControls(questionIndex); track $index; let answerIndex = $index) {
+                        <app-input-field class="survey-form__answer-input" [inputFieldVariant]="'labelOnLeft'"
+                            [control]="$any(item)" [labeltext]="getAlphabeticalLetterForLabel(answerIndex)"
+                            placeholder="" labelname="answer{{answerIndex}}" [hasTrash]="true">
+                        </app-input-field>
+                        }
+
+                        <app-button [btnText]="'Add  answer'" [btnVariant]="'tertiary_add'"
+                            (btnClick)="addQuestion()"></app-button>
+                    </div>}
+                    <app-button [btnText]="'Add next quedsaasstion'" [btnVariant]="'secondary_add'"
+                        (btnClick)="addQuestion()"></app-button>
                 </section>
 
             </form>

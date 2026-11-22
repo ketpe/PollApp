@@ -6,10 +6,11 @@ import { FilterButton } from '../../shared/components/filter-button/filter-butto
 import { DropDownMenu } from '../../shared/components/drop-down-menu/drop-down-menu';
 import { Surveys } from '../../shared/services/surveys';
 import { NewSurveyDialog } from '../../shared/components/new-survey-dialog/new-survey-dialog';
+import { Button } from '../../shared/components/button/button';
 
 
 @Component({
-  imports: [HomeHeader, PrimaryButton, HighlightCard, FilterButton, DropDownMenu, NewSurveyDialog],
+  imports: [HomeHeader, HighlightCard, FilterButton, DropDownMenu, NewSurveyDialog, Button],
   selector: 'app-home',
   styleUrl: './home.scss',
   templateUrl: './home.html',
