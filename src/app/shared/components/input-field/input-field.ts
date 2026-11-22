@@ -1,6 +1,6 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { InputFieldVariant } from '../../models/types';
+import { InputFieldVariant, Labeltext } from '../../models/types';
 import { DeleteButton } from '../delete-button/delete-button';
 import { VALIDATOR_MESSAGE } from '../../models/validator-messages';
 
@@ -13,6 +13,7 @@ import { VALIDATOR_MESSAGE } from '../../models/validator-messages';
 export class InputField {
   labelname = input<string>("");
   labeltext = input<string>("");
+  placeholder = input<string>("");
   hasTrash = input<boolean>(false);
   inputFieldVariant = input<InputFieldVariant>("noLabel");
   control = input<FormControl>(new FormControl(''));

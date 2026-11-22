@@ -1,27 +1,37 @@
 <dialog #newSurveyDialog (cancel)="onClose()">
-    <div class="new_servey-container">
+    <div class="new-survey-container">
         <app-survey-state purpose="state" surveyState="draft"></app-survey-state>
-        <header class="new_servey-header">
-            <span class="new_servey-header-headline">Create new Servey</span>
+        <header class="new-survey-header">
+            <span class="new-survey-header-headline">Create new Servey</span>
             <app-secondary-button textforBtn="cancel" (btnClick)="close()"></app-secondary-button>
         </header>
-        <div class="survey-form">
-            <form class="survey-form-grid" [formGroup]="serveyForm">
-                <div class="survey-form-grid-container">
-                    <app-input-field class="title-field" [inputFieldVariant]="'labelOnTop'"
+        <article class="survey-form">
+            <form class="survey-form__form" [formGroup]="serveyForm">
+                <section class="survey-form__metadata-section">
+                    <app-input-field class="survey-form__title-field" [inputFieldVariant]="'labelOnTop'"
                         [control]="serveyForm.controls.surveyName" [labeltext]="labelText.surveyName"
                         labelname="SurveyName" [hasTrash]="true"></app-input-field>
-                    <app-input-field class="end-date-field" [inputFieldVariant]="'dateInput'"
+                    <app-input-field class="survey-form__end-date-field" [inputFieldVariant]="'dateInput'"
                         [control]="serveyForm.controls.surveyEndDate" [labeltext]="labelText.surveyDate"
                         labelname="SurveyEnddate" [hasTrash]="true"></app-input-field>
-                    <app-drop-down-menu class="survey-category"></app-drop-down-menu>
-                    <app-input-field class="survey-description" [inputFieldVariant]="'textArea'"
+                    <app-drop-down-menu class="survey-form__category-field"></app-drop-down-menu>
+                    <app-input-field class="survey-form__description-field" [inputFieldVariant]="'textArea'"
                         [control]="serveyForm.controls.surveyDescription" [labeltext]="labelText.surveyDescription"
-                        labelname="SurveyName" [hasTrash]="true"></app-input-field>
-                </div>
+                        labelname="SurveyDescription" [hasTrash]="true"></app-input-field>
+                </section>
+                <section class="survey-form__questions-section">
+                    @for (item of getQuestionControls(); track $index) { <app-input-field
+                        class="survey-form__question-title-field" [inputFieldVariant]="'labelOnTopWithTrash'"
+                        [control]="$any(item).get('question')" [labeltext]="$index + 1 + '. ' + labelText.question"
+                        placeholder="Choose the activities you prefer" labelname="Question{{$index}}"
+                        [hasTrash]="true"></app-input-field>
+                    <p class="survey-form__answer-headline">Answers</p>
+                    <app-checkbox class="survey-form__answer-multicheckbox" labelname="multiAnswer{{$index}}"
+                        [labeltext]="labelText.multiAnswer" [control]="$any(item).get('multiAnswer')"></app-checkbox>}
+                </section>
 
             </form>
 
-        </div>
+        </article>
     </div>
 </dialog>

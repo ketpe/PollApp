@@ -17,7 +17,7 @@ dialog {
     padding: 40px 54px;
 }
 
-.new_servey-header {
+.new-survey-header {
     width: 100%;
     gap: 32px;
     display: flex;
@@ -31,11 +31,14 @@ dialog {
     }
 }
 
-.survey-form-grid {
-    gap: 64px;
+.survey-form {
+    &__form {
+        gap: 64px;
+        display: flex;
+        flex-direction: column;
+    }
 
-
-    &-container {
+    &__metadata-section {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: auto auto;
@@ -44,20 +47,43 @@ dialog {
             "survey-endDate survey-category survey-description survey-description ";
     }
 
-    .title-field {
+    &__questions-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            "question-title question-title none none"
+            "answer-headline multi-checkbox none none";
+    }
+
+    &__title-field {
         grid-area: survey-name;
     }
 
-    .end-date-field {
+    &__end-date-field {
         grid-area: survey-endDate;
     }
 
-    .survey-category {
+    &__category-field {
         grid-area: survey-category;
     }
 
-    .survey-description {
+    &__description-field {
         grid-area: survey-description;
     }
 
+    &__question-title-field {
+        grid-area: question-title;
+
+    }
+
+    &__answer-headline {
+        grid-area: answer-headline;
+        margin: 0;
+        @include mixin.font ("Mulish", 18px, 700);
+        color: white;
+    }
+
+    &__answer-multicheckbox {
+        grid-area: multi-checkbox;
+    }
 }

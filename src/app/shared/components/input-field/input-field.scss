@@ -89,6 +89,14 @@
             "error error";
     }
 
+    &.labelOnTopWithTrash {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "label trash"
+            "input input"
+            "error error";
+    }
+
     &.labelOnLeft {
         grid-template-columns: auto 1fr auto;
         grid-template-areas:
