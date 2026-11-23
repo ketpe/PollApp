@@ -40,20 +40,42 @@ dialog {
 
     &__metadata-section {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: auto auto;
+        gap: 64px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
         grid-template-areas:
-            "survey-name survey-name survey-description survey-description"
-            "survey-endDate survey-category survey-description survey-description ";
+            " metadata-left metadata-right ";
+
+        &-left {
+            display: grid;
+            grid-area: metadata-left;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas:
+                "survey-name survey-name"
+                "survey-endDate survey-category";
+        }
+
+        &-right {
+            grid-area: metadata-right;
+        }
     }
+
 
     &__questions-section {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 64px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__question-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row: auto auto;
         grid-template-areas:
-            "question-title question-title none none"
-            "answer-headline multi-checkbox none none"
-            "answer-inputs answer-inputs none none";
+            "question-title question-title "
+            "answer-headline multi-checkbox "
+            "answer-inputs answer-inputs ";
     }
 
     &__title-field {
@@ -74,7 +96,6 @@ dialog {
 
     &__question-title-field {
         grid-area: question-title;
-
     }
 
     &__answer-headline {
@@ -87,9 +108,18 @@ dialog {
     &__answer-multicheckbox {
         grid-area: multi-checkbox;
         padding-bottom: 16px;
+        text-align: end;
     }
 
     &__answer-inputs {
         grid-area: answer-inputs;
+    }
+
+    &.survey-form__add-answer-btn {
+        grid-area: add-answer-btn;
+    }
+
+    &.survey-form__add-question-btn {
+        grid-area: add-question-btn;
     }
 }
