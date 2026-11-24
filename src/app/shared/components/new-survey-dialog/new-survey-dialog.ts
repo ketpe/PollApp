@@ -51,7 +51,14 @@ export class NewSurveyDialog {
     })
   }
   addQuestion() {
-    this.createQuestionGroup();
+    const questionArray = this.getQuestionControls()
+    const newQuestiongroup = this.createQuestionGroup();
+    questionArray.push(newQuestiongroup);
+  }
+  addAnswer(questionIndex: number) {
+    const specificAnswer = this.getAnswerControls(questionIndex)
+    const newAnswer = this.createAnswer();
+    specificAnswer.push(newAnswer);
   }
 
   createAnswer() {
@@ -74,6 +81,7 @@ export class NewSurveyDialog {
 
     return (specificQuestion.get('answers') as FormArray).controls;
   }
+
   getAlphabeticalLetterForLabel(answerIndex: number) {
     return String.fromCharCode(65 + answerIndex) + '.';
 

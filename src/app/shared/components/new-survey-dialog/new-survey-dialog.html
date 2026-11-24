@@ -28,9 +28,8 @@
                     <aside class="survey-form__question-container">
                         <app-input-field class="survey-form__question-title-field"
                             [inputFieldVariant]="'labelOnTopWithTrash'" [control]="$any(item).get('question')"
-                            [labeltext]="questionIndex + 1 + '. ' + labelText.question"
-                            placeholder="Choose the activities you prefer" labelname="Question{{$index}}"
-                            [hasTrash]="true"></app-input-field>
+                            [labeltext]="questionIndex + 1 + '. ' + labelText.question" placeholder=""
+                            labelname="Question{{$index}}" [hasTrash]="true"></app-input-field>
                         <span class="survey-form__answer-headline">Answers</span>
                         <app-checkbox class="survey-form__answer-multicheckbox" labelname="multiAnswer{{$index}}"
                             [labeltext]="labelText.multiAnswer"
@@ -44,7 +43,7 @@
                             }
 
                             <app-button class="survey-form__add-answer-btn" [btnText]="'Add  answer'"
-                                [btnVariant]="'tertiary_add'" (btnClick)="addQuestion()"></app-button>
+                                [btnVariant]="'tertiary_add'" (btnClick)="addAnswer(questionIndex)"></app-button>
                         </div>
                     </aside>
                     }
