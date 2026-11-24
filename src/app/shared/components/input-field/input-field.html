@@ -19,6 +19,6 @@
         </div>
         }
         <p class="input-container-error" [class.is-visible]="errorMessage()">{{errorMessage()}}</p>
-        <app-delete-button class="input-container-trash"></app-delete-button>
+        <app-delete-button class="input-container-trash" (click)="clearInput()"></app-delete-button>
     </span>
 </article>

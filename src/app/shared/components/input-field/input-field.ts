@@ -56,4 +56,11 @@ export class InputField {
     const errorKey = Object.keys(error)[0] as keyof typeof VALIDATOR_MESSAGE;
     return VALIDATOR_MESSAGE[errorKey] || errorKey;
   });
+
+  clearInput() {
+    this.control().setValue('');
+    this.control().markAsPristine();
+    this.control().markAsUntouched();
+    this.touchTrigger.set(0);
+  }
 }
