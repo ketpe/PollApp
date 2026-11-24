@@ -7,9 +7,10 @@
     justify-content: center;
     align-items: start;
     position: relative;
+    gap: 4px;
 }
 
-.drop_down-menu {
+.drop_down_menu {
     @include mixin.font (Mulish, 14px, 400);
     letter-spacing: 2%;
     padding: 0;
@@ -21,7 +22,8 @@
     cursor: pointer;
     width: fit-content;
 
-    &-headline {
+
+    &__headline {
         padding: 4px 6px;
         @include mixin.font ("Mulish", 18px, 700, Bold);
     }
@@ -30,9 +32,9 @@
         background-color: color.$background-drop-down-menu-hover;
     }
 
-    &_list {
+    &__list {
         position: absolute;
-        top: 100%;
+        top: 31px;
         left: 0;
         z-index: 10;
         box-sizing: border-box;
@@ -66,7 +68,7 @@
         }
     }
 
-    &-selectedCategorie {
+    &__selectedCategorie {
         @include mixin.font ("Mulish", 14px, 400);
         color: color.$primary-orange;
         padding: 4px 4px 4px 6px;
