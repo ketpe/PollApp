@@ -9,7 +9,8 @@
     </button>
     @if (isCategoryShow()){
     <ul class="drop_down_menu__list" id="drop_down_menu__list">
-        <li class="drop_down_menu__list-item" (click)="selectCategory('All Surveys')">All Surveys</li>
+        @if (isOverview()) {
+        <li class="drop_down_menu__list-item" (click)="selectCategory('All Surveys')">All Surveys</li>}
         @for (item of this.surveysService.categories(); track $index) {
         <li class="drop_down_menu__list-item" (click)="selectCategory(item)">{{item.name}}</li>
         }

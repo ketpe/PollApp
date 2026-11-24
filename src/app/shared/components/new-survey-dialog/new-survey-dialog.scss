@@ -72,8 +72,7 @@ dialog {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-row: auto auto;
-        grid-template-areas:
-            "question-title question-title "
+        grid-template-areas: "question-title question-title "
             "answer-headline multi-checkbox "
             "answer-inputs answer-inputs ";
     }
@@ -88,6 +87,7 @@ dialog {
 
     &__category-field {
         grid-area: survey-category;
+        justify-self: end;
     }
 
     &__description-field {

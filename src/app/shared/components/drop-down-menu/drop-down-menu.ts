@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { Surveys } from '../../services/surveys';
 import { Category } from '../../models/category.interface';
 
@@ -14,6 +14,7 @@ export class DropDownMenu {
   currentStatus = 'normal';
   selectedCategory = signal<Category | "All Surveys">('All Surveys');
   isCategoryShow = signal<boolean>(false);
+  isOverview = input<boolean>(true);
 
   /**
    * specifies the path based on the status

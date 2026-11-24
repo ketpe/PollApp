@@ -15,7 +15,8 @@
                         <app-input-field class="survey-form__end-date-field" [inputFieldVariant]="'dateInput'"
                             [control]="serveyForm.controls.surveyEndDate" [labeltext]="labelText.surveyDate"
                             labelname="SurveyEnddate" [hasTrash]="true"></app-input-field>
-                        <app-drop-down-menu class="survey-form__category-field"></app-drop-down-menu>
+                        <app-drop-down-menu [isOverview]="false"
+                            class="survey-form__category-field"></app-drop-down-menu>
                     </aside>
                     <aside class="survey-form__metadata-section-right">
                         <app-input-field class="survey-form__description-field" [inputFieldVariant]="'textArea'"
