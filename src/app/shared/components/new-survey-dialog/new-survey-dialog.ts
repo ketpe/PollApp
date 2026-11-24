@@ -1,6 +1,5 @@
 import { Component, ViewChild, ElementRef, input, output, effect, afterNextRender, inject } from '@angular/core';
 import { SurveyState } from '../survey-state/survey-state';
-import { SecondaryButton } from '../secondary-button/secondary-button';
 import { FormBuilder, FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputField } from '../input-field/input-field';
 import { DropDownMenu } from '../drop-down-menu/drop-down-menu';
@@ -10,7 +9,7 @@ import { Checkbox } from '../checkbox/checkbox';
 import { Button } from '../button/button';
 
 @Component({
-  imports: [SurveyState, SecondaryButton, ReactiveFormsModule, InputField, DropDownMenu, Checkbox, Button],
+  imports: [SurveyState, ReactiveFormsModule, InputField, DropDownMenu, Checkbox, Button],
   selector: 'app-new-survey-dialog',
   styleUrl: './new-survey-dialog.scss',
   templateUrl: './new-survey-dialog.html',
