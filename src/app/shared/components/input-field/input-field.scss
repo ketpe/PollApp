@@ -3,12 +3,13 @@
 
 .input-container {
     display: grid;
-    gap: 10px;
+    gap: 0px 10px;
 
     .input-container-label {
         grid-area: label;
         color: white;
         @include mixin.font ("Mulish", 18px, 700, Bold);
+        padding-bottom: 4px;
     }
 
     .input-container-textaria {
@@ -49,7 +50,8 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.2s ease;
-        margin-top: 0;
+        margin-top: 2px;
+        margin-bottom: 0.5em;
         @include mixin.font ("Mulish", 14px, 700, Bold);
         color: color.$headline-dialog-orange;
     }
@@ -58,7 +60,7 @@
         opacity: 1;
         height: 14px;
         visibility: visible;
-        margin-top: 0;
+
     }
 
 
@@ -102,7 +104,7 @@
         grid-template-columns: auto 1fr auto;
         grid-template-areas:
             " label input trash"
-            " error error error";
+            " none error error";
     }
 
     &.textArea {
