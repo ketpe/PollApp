@@ -28,12 +28,16 @@ const BTN_VARIANT = {
     class: 'primary',
     imagePath: '/images/add_circle.svg'
   },
-  secondary_cancel: {
+  secondary_publish: {
     class: 'secondary',
+    imagePath: ''
+  },
+  secondary_cancel: {
+    class: 'secondary_dialog',
     imagePath: '/icons/close_Icon.svg'
   },
   secondary_add: {
-    class: 'secondary',
+    class: 'secondary_dialog',
     imagePath: '/icons/add_circle-white.svg'
   },
   tertiary_add: {

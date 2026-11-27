@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, input, output, effect, afterNextRender, inject } from '@angular/core';
+import { Component, ViewChild, ElementRef, input, output, effect, afterNextRender, inject, signal } from '@angular/core';
 import { SurveyState } from '../survey-state/survey-state';
 import { FormBuilder, FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputField } from '../input-field/input-field';
@@ -20,19 +20,22 @@ export class NewSurveyDialog {
   closeDialog = output<void>();
   labelText = INPUT_LABEL_TEXT;
   private fBuilder = inject(FormBuilder);
+  isOpen = signal(false);
 
 
   open() {
-    this.dialogRef.nativeElement.showModal();
+    this.isOpen.set(true)
+    document.body.classList.add('overflow-hidden')
   }
 
   close() {
-    this.dialogRef.nativeElement.close();
+    this.isOpen.set(false);
     this.closeDialog.emit();
+    document.body.classList.remove('overflow-hidden')
   }
 
   onClose() {
-    this.closeDialog.emit();
+    this.close();
   }
 
   serveyForm = this.fBuilder.group({
@@ -62,7 +65,7 @@ export class NewSurveyDialog {
   }
 
   createAnswer() {
-    return this.fBuilder.control("")
+    return this.fBuilder.control("", [Validators.required])
   }
 
   get surveysControls() {

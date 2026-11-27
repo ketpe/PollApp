@@ -1,59 +1,67 @@
-<dialog #newSurveyDialog (cancel)="onClose()">
-    <div class="new-survey-container">
-        <app-survey-state purpose="state" surveyState="draft"></app-survey-state>
-        <header class="new-survey-header">
-            <span class="new-survey-header-headline">Create new Servey</span>
-            <app-button (click)="close()" [btnText]="'Cancel'" [btnVariant]="'secondary_cancel'"></app-button>
-        </header>
-        <article class="survey-form">
-            <form class="survey-form__form" [formGroup]="serveyForm">
-                <section class="survey-form__metadata-section">
-                    <aside class="survey-form__metadata-section-left">
-                        <app-input-field class="survey-form__title-field" [inputFieldVariant]="'labelOnTop'"
-                            [control]="serveyForm.controls.surveyName" [labeltext]="labelText.surveyName"
-                            labelname="SurveyName" [hasTrash]="true"></app-input-field>
-                        <app-input-field class="survey-form__end-date-field" [inputFieldVariant]="'dateInput'"
-                            [control]="serveyForm.controls.surveyEndDate" [labeltext]="labelText.surveyDate"
-                            labelname="SurveyEnddate" [hasTrash]="true"></app-input-field>
-                        <app-drop-down-menu [isOverview]="false"
-                            class="survey-form__category-field"></app-drop-down-menu>
-                    </aside>
-                    <aside class="survey-form__metadata-section-right">
-                        <app-input-field class="survey-form__description-field" [inputFieldVariant]="'textArea'"
-                            [control]="serveyForm.controls.surveyDescription" [labeltext]="labelText.surveyDescription"
-                            labelname="SurveyDescription" [hasTrash]="true"></app-input-field>
-                    </aside>
-                </section>
-                <section class="survey-form__questions-section">
-                    @for (item of getQuestionControls(); track $index; let questionIndex = $index) {
-                    <aside class="survey-form__question-container">
-                        <app-input-field class="survey-form__question-title-field"
-                            [inputFieldVariant]="'labelOnTopWithTrash'" [control]="$any(item).get('question')"
-                            [labeltext]="questionIndex + 1 + '. ' + labelText.question" placeholder=""
-                            labelname="Question{{$index}}" [hasTrash]="true"></app-input-field>
-                        <span class="survey-form__answer-headline">Answers</span>
-                        <app-checkbox class="survey-form__answer-multicheckbox" labelname="multiAnswer{{$index}}"
-                            [labeltext]="labelText.multiAnswer"
-                            [control]="$any(item).get('multiAnswer')"></app-checkbox>
-                        <div class="survey-form__answer-inputs">
-                            @for (item of getAnswerControls(questionIndex); track $index; let answerIndex = $index) {
-                            <app-input-field class="survey-form__answer-input" [inputFieldVariant]="'labelOnLeft'"
-                                [control]="$any(item)" [labeltext]="getAlphabeticalLetterForLabel(answerIndex)"
-                                placeholder="" labelname="answer{{answerIndex}}" [hasTrash]="true">
-                            </app-input-field>
-                            }
+@if (isOpen()) {
+<div class="dialog_wrapper" (click)="close()">
+    <div class="dialog-content-box" (click)="$event.stopPropagation()">
+        <div class="new-survey-container">
+            <app-survey-state purpose="state" surveyState="draft"></app-survey-state>
+            <header class="new-survey-header">
+                <span class="new-survey-header-headline">Create new Servey</span>
+                <app-button (click)="close()" [btnText]="'Cancel'" [btnVariant]="'secondary_cancel'"></app-button>
+            </header>
+            <article class="survey-form">
+                <form class="survey-form__form" [formGroup]="serveyForm">
+                    <section class="survey-form__metadata-section">
+                        <aside class="survey-form__metadata-section-left">
+                            <app-input-field class="survey-form__title-field" [inputFieldVariant]="'labelOnTop'"
+                                [control]="serveyForm.controls.surveyName" [labeltext]="labelText.surveyName"
+                                labelname="SurveyName" [hasTrash]="true"></app-input-field>
+                            <app-input-field class="survey-form__end-date-field" [inputFieldVariant]="'dateInput'"
+                                [control]="serveyForm.controls.surveyEndDate" [labeltext]="labelText.surveyDate"
+                                labelname="SurveyEnddate" [hasTrash]="true"></app-input-field>
+                            <app-drop-down-menu [isOverview]="false"
+                                class="survey-form__category-field"></app-drop-down-menu>
+                        </aside>
+                        <aside class="survey-form__metadata-section-right">
+                            <app-input-field class="survey-form__description-field" [inputFieldVariant]="'textArea'"
+                                [control]="serveyForm.controls.surveyDescription"
+                                [labeltext]="labelText.surveyDescription" labelname="SurveyDescription"
+                                [hasTrash]="true"></app-input-field>
+                        </aside>
+                    </section>
+                    <section class="survey-form__questions-section">
+                        @for (item of getQuestionControls(); track $index; let questionIndex = $index) {
+                        <aside class="survey-form__question-container">
+                            <app-input-field class="survey-form__question-title-field"
+                                [inputFieldVariant]="'labelOnTopWithTrash'" [control]="$any(item).get('question')"
+                                [labeltext]="questionIndex + 1 + '. ' + labelText.question" placeholder=""
+                                labelname="Question{{$index}}" [hasTrash]="true"></app-input-field>
+                            <span class="survey-form__answer-headline">Answers</span>
+                            <app-checkbox class="survey-form__answer-multicheckbox" labelname="multiAnswer{{$index}}"
+                                [labeltext]="labelText.multiAnswer"
+                                [control]="$any(item).get('multiAnswer')"></app-checkbox>
+                            <div class="survey-form__answer-inputs">
+                                @for (item of getAnswerControls(questionIndex); track $index; let answerIndex = $index)
+                                {
+                                <app-input-field class="survey-form__answer-input" [inputFieldVariant]="'labelOnLeft'"
+                                    [control]="$any(item)" [labeltext]="getAlphabeticalLetterForLabel(answerIndex)"
+                                    placeholder="" labelname="answer{{answerIndex}}" [hasTrash]="true">
+                                </app-input-field>
+                                }
 
-                            <app-button class="survey-form__add-answer-btn" [btnText]="'Add  answer'"
-                                [btnVariant]="'tertiary_add'" (btnClick)="addAnswer(questionIndex)"></app-button>
-                        </div>
-                    </aside>
-                    }
-                    <app-button class="survey-form__add-question-btn" [btnText]="'Add next question'"
-                        [btnVariant]="'secondary_add'" (btnClick)="addQuestion()"></app-button>
-                </section>
-
-            </form>
-
-        </article>
+                                <app-button class="survey-form__add-answer-btn" [btnText]="'Add  answer'"
+                                    [btnVariant]="'tertiary_add'" (btnClick)="addAnswer(questionIndex)"></app-button>
+                            </div>
+                        </aside>
+                        }
+                        <app-button class="survey-form__add-question-btn" [btnText]="'Add next question'"
+                            [btnVariant]="'secondary_add'" (btnClick)="addQuestion()"></app-button>
+                    </section>
+                </form>
+                <div class="survey-form__publish">
+                    <app-button class="survey-form__publish-btn" [btnText]="'Publish'"
+                        [btnVariant]="'secondary_publish'" (btnClick)="addQuestion()"></app-button>
+                </div>
+            </article>
+        </div>
     </div>
-</dialog>
+</div>
+}
