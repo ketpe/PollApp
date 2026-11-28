@@ -33,7 +33,8 @@
                             <app-input-field class="survey-form__question-title-field"
                                 [inputFieldVariant]="'labelOnTopWithTrash'" [control]="$any(item).get('question')"
                                 [labeltext]="questionIndex + 1 + '. ' + labelText.question" placeholder=""
-                                labelname="Question{{$index}}" [hasTrash]="true"></app-input-field>
+                                labelname="Question{{$index}}" [hasTrash]="true"
+                                (deleteBtnPressed)="removeQuestion(questionIndex)"></app-input-field>
                             <span class="survey-form__answer-headline">Answers</span>
                             <app-checkbox class="survey-form__answer-multicheckbox" labelname="multiAnswer{{$index}}"
                                 [labeltext]="labelText.multiAnswer"
@@ -43,7 +44,8 @@
                                 {
                                 <app-input-field class="survey-form__answer-input" [inputFieldVariant]="'labelOnLeft'"
                                     [control]="$any(item)" [labeltext]="getAlphabeticalLetterForLabel(answerIndex)"
-                                    placeholder="" labelname="answer{{answerIndex}}" [hasTrash]="true">
+                                    placeholder="" labelname="answer{{answerIndex}}" [hasTrash]="true"
+                                    (deleteBtnPressed)="removeAnswer(questionIndex, answerIndex)">
                                 </app-input-field>
                                 }
                                 @if (!isAnswerLimitReached(questionIndex)) {
@@ -54,8 +56,10 @@
                             </div>
                         </aside>
                         }
+                        @if (!isQuestionLimitReached()){
                         <app-button class="survey-form__add-question-btn" [btnText]="'Add next question'"
-                            [btnVariant]="'secondary_add'" (btnClick)="addQuestion()"></app-button>
+                            [btnVariant]="'secondary_add'" (btnClick)="addQuestion()"
+                            [isDisabled]="isQuestionLimitReached()"></app-button>}
                     </section>
                 </form>
                 <div class="survey-form__publish">

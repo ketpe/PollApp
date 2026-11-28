@@ -1,4 +1,4 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { InputFieldVariant, Labeltext } from '../../models/types';
 import { DeleteButton } from '../delete-button/delete-button';
@@ -17,6 +17,7 @@ export class InputField {
   hasTrash = input<boolean>(false);
   inputFieldVariant = input<InputFieldVariant>("noLabel");
   control = input<FormControl>(new FormControl(''));
+  deleteBtnPressed = output<void>();
 
   private touchTrigger = signal(0);
 
@@ -56,6 +57,11 @@ export class InputField {
     const errorKey = Object.keys(error)[0] as keyof typeof VALIDATOR_MESSAGE;
     return VALIDATOR_MESSAGE[errorKey] || errorKey;
   });
+
+  onDeleteClicked() {
+    this.deleteBtnPressed.emit();
+    this.clearInput()
+  }
 
   clearInput() {
     this.control().setValue('');

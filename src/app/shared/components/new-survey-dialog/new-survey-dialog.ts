@@ -76,8 +76,12 @@ export class NewSurveyDialog {
     return this.serveyForm.controls
   }
 
+  getQuestionArray() {
+    return this.serveyForm.get('questions') as FormArray;
+  }
+
   getQuestionControls() {
-    return (this.serveyForm.get('questions') as FormArray).controls;
+    return this.getQuestionArray().controls;
   }
 
   getAnswerControls(questionIndex: number) {
@@ -94,6 +98,15 @@ export class NewSurveyDialog {
 
   }
 
+  isQuestionLimitReached() {
+    const questionsArrayLenght = this.getQuestionArray.length;
+    if (questionsArrayLenght > 5) {
+      return true;
+    } else {
+      return false
+    }
+  }
+
   isAnswerLimitReached(questionIndex: number) {
     const answerArrayLenght = this.getAnswerArray(questionIndex).length;
     if (answerArrayLenght > 5) {
@@ -102,5 +115,20 @@ export class NewSurveyDialog {
       return false
     }
   }
+
+  removeQuestion(questionIndex: number) {
+    const questions = this.getQuestionArray();
+    if (questions.length > 1 && questionIndex < questions.length) {
+      questions.removeAt(questionIndex);
+    }
+  }
+
+  removeAnswer(questionIndex: number, answerIndex: number) {
+    const answers = this.getAnswerArray(questionIndex);
+    if (answers.length > 2 && answerIndex < answers.length) {
+      answers.removeAt(answerIndex);
+    }
+  }
 }
 
+// Vielleicht müssen die Antworten nicht einzel geleert werden sonder direkt das array gelöscht?
