@@ -1,4 +1,4 @@
-<button [class]="btnConfig().class +'_btn'" (click)="btnClick.emit()">
+<button [class]="btnConfig().class +'_btn'" (click)="btnClick.emit()" [disabled]="isDisabled()">
     <span [class]="btnConfig().class+'_btn-label'">{{btnText()}}</span>
     @if (btnConfig().imagePath) {
     <img [class]="btnConfig().class +'_btn-img'" src="{{btnConfig().imagePath}}" alt="add circle" srcset="">}

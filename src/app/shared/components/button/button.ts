@@ -16,6 +16,7 @@ export class Button {
   btnText = input<string>("");
   btnVariant = input<BtnType>('primary_new_servey');
   btnClick = output<void>();
+  isDisabled = input<boolean>(false);
   btnConfig = computed(() => {
     return BTN_VARIANT[this.btnVariant()];
   });

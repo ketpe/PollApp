@@ -58,10 +58,14 @@ export class NewSurveyDialog {
     const newQuestiongroup = this.createQuestionGroup();
     questionArray.push(newQuestiongroup);
   }
+
   addAnswer(questionIndex: number) {
-    const specificAnswer = this.getAnswerControls(questionIndex)
-    const newAnswer = this.createAnswer();
-    specificAnswer.push(newAnswer);
+    const specificAnswer = this.getAnswerArray(questionIndex)
+    if (specificAnswer.length < 6) {
+      const newAnswer = this.createAnswer();
+      specificAnswer.push(newAnswer);
+    }
+
   }
 
   createAnswer() {
@@ -77,17 +81,26 @@ export class NewSurveyDialog {
   }
 
   getAnswerControls(questionIndex: number) {
-
+    return this.getAnswerArray(questionIndex).controls
+  }
+  getAnswerArray(questionIndex: number) {
     const questionsArray = this.serveyForm.get('questions') as FormArray;
-
     const specificQuestion = questionsArray.at(questionIndex) as FormGroup;
-
-    return (specificQuestion.get('answers') as FormArray).controls;
+    return (specificQuestion.get('answers') as FormArray);
   }
 
   getAlphabeticalLetterForLabel(answerIndex: number) {
     return String.fromCharCode(65 + answerIndex) + '.';
 
+  }
+
+  isAnswerLimitReached(questionIndex: number) {
+    const answerArrayLenght = this.getAnswerArray(questionIndex).length;
+    if (answerArrayLenght > 5) {
+      return true
+    } else {
+      return false
+    }
   }
 }
 

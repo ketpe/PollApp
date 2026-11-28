@@ -46,9 +46,11 @@
                                     placeholder="" labelname="answer{{answerIndex}}" [hasTrash]="true">
                                 </app-input-field>
                                 }
-
+                                @if (!isAnswerLimitReached(questionIndex)) {
                                 <app-button class="survey-form__add-answer-btn" [btnText]="'Add  answer'"
-                                    [btnVariant]="'tertiary_add'" (btnClick)="addAnswer(questionIndex)"></app-button>
+                                    [btnVariant]="'tertiary_add'" (btnClick)="addAnswer(questionIndex)"
+                                    [isDisabled]="isAnswerLimitReached(questionIndex)"></app-button>
+                                }
                             </div>
                         </aside>
                         }
